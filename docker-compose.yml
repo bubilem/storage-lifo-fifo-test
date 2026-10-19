@@ -1,0 +1,9 @@
+services:
+  tests:
+    container_name: storage-lifo-fifo-test
+    image: storage-lifo-fifo-test
+    build: .
+    # Připojení lokálního adresáře umožňuje okamžité testování změn bez nutnosti rebuildovat image
+    volumes:
+      - .:/app
+    command: python -m unittest discover -s tests -v
